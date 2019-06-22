@@ -1,10 +1,14 @@
 <template>
-    <div id="app"></div>
+    <div id="app">
+        <Main/>
+    </div>
 </template>
 
 <script>
 import Main from '@/views/Main.vue'
-export default {}
+export default {
+    components: { Main }
+}
 </script>
 
 
