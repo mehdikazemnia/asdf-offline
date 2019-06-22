@@ -1,8 +1,7 @@
 const namespaced = true
 
 const state = {
-  notes: [],
-  opened: false
+  tree: []
 }
 
 const mutations = {}
