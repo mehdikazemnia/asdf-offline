@@ -1,19 +1,13 @@
 <template>
     <div id="left-section">
-        <nav></nav>
+        <TreeMenu/>
     </div>
 </template>
 
 <script>
+import TreeMenu from './TreeMenu.vue'
 export default {
-    data() {
-        return {}
-    },
-    computed: {
-        tree() {
-            return this.$store.state.tree.tree
-        }
-    }
+    components: { TreeMenu }
 }
 </script>
 
