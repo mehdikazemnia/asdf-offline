@@ -67,6 +67,13 @@ export default {
         }
     },
     methods: {
+        createNote() {
+            this.$store.dispatch('note/create', {
+                name: 'Untitled Note',
+                content: '...',
+                parent: this.category._id
+            })
+        },
         toggleCollapse() {
             this.collapse = !this.collapse
         },
@@ -76,11 +83,14 @@ export default {
                 parent: id
             })
         },
-        renameCategory() {
-            alert(1)
-            // this.$store.dispatch('category/delete', {
-            //     _id: this.category._id
-            // })
+        renameCategory(id) {
+            let newName = window.prompt('Enter the new name for this category')
+            if (newName && newName.length) {
+                this.$store.dispatch('category/update', {
+                    _id: id,
+                    name: newName
+                })
+            }
         },
         deleteCategory() {
             this.$store.dispatch('category/delete', {
