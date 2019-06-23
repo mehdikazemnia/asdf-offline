@@ -104,11 +104,12 @@ nav > #base-list {
 }
 .item > .label {
     font-size: 14px;
-    height: 22px;
+    height: 28px;
     line-height: 22px;
     cursor: pointer;
     user-select: none;
     position: relative;
+    padding: 3px 1px;
 }
 .item > .label::before {
     content: '';

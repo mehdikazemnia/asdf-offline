@@ -12,6 +12,7 @@ export default {
     },
     created() {
         // this.$store.state.category.categories = []
+        // this.$store.state.note.notes = []
         // make the root if not already there
         // this code will run only the first time
         if (
