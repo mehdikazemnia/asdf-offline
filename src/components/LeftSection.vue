@@ -13,6 +13,7 @@ export default {
 
 <style>
 #left-section {
+    max-width: 240px;
     min-width: 240px;
     width: 240px;
     height: 100vh;

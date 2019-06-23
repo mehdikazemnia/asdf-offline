@@ -68,19 +68,22 @@ nav > #base-list {
     height: 90%;
 }
 .v-context {
-    min-width: 8rem !important;
+    min-width: 100px !important;
     padding: 2px 0px !important;
-    background-color: #fafafa !important;
+    color: #fafafa;
+    background-color: #222 !important;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1),
         0 3px 1px -2px rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.05) !important;
 }
 .v-context > li > a {
+    color: #fafafa;
     padding: 4px !important;
     font-size: 0.85em;
     opacity: 0.9;
 }
 .v-context > li > a:hover {
-    background-color: rgba(0, 0, 0, 0.05) !important;
+    color: #fafafa;
+    background-color: #353535 !important;
 }
 
 .list,
@@ -93,7 +96,7 @@ nav > #base-list {
 .item::after {
     position: absolute;
     content: '';
-    top: 10px;
+    top: 14px;
     left: -20px;
     border-left: 1px dashed #777;
     border-top: 1px dashed #777;
@@ -103,9 +106,9 @@ nav > #base-list {
     z-index: 29;
 }
 .item > .label {
-    font-size: 14px;
+    font-size: 15px;
     height: 28px;
-    line-height: 22px;
+    line-height: 20px;
     cursor: pointer;
     user-select: none;
     position: relative;
@@ -114,13 +117,13 @@ nav > #base-list {
 .item > .label::before {
     content: '';
     position: absolute;
-    top: -10px;
+    top: -8px;
     left: -20px;
     border-left: 1px dashed #777;
     border-bottom: 1px dashed #777;
     border-radius: 0 0 0 5px;
     width: 20px;
-    height: 20px;
+    height: 22px;
     z-index: 29;
 }
 .item > .label > span {
