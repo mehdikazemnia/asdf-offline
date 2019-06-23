@@ -7,18 +7,13 @@ const state = {
 
 const mutations = {
   CREATE(state, payload) {
-    let { name, content, parent } = payload
-    let _id = makeUniqueId(id => {
-      if (state.notes.filter(n => n._id === id).length) return false
-      return true
-    })
+    let { name, content, parent, _id } = payload
     state.notes.push({
       _id,
       name,
       content,
       parent
     })
-    return _id
   },
   UPDATE_NAME(state, payload) {
     let { _id, name } = payload
@@ -58,13 +53,22 @@ const mutations = {
 }
 
 const actions = {
-  create({ commit }, payload) {
-    return commit('CREATE', payload)
+  create({ state, commit, dispatch }, payload) {
+    let _id = makeUniqueId(id => {
+      if (state.notes.filter(n => n._id === id).length) return false
+      return true
+    })
+    commit('CREATE', { _id, ...payload })
+    dispatch(
+      'category/linkNote',
+      { noteId: _id, categoryId: payload.parent },
+      { root: true }
+    )
   },
   update({ commit }, payload) {
     if (payload.content) return commit('UPDATE_CONTENT', payload)
     else if (payload.parent) return commit('UPDATE_PARENT', payload)
-    else if (payload.name) return commit('UPADTE_NAME', payload)
+    else if (payload.name) return commit('UPDATE_NAME', payload)
     else return false
   },
   delete({ commit, dispatch, getters }, payload) {
