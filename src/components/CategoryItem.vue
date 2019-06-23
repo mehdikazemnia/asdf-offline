@@ -93,9 +93,17 @@ export default {
             }
         },
         deleteCategory() {
-            this.$store.dispatch('category/delete', {
-                _id: this.category._id
-            })
+            let rand = Math.round(Math.random() * 10)
+            let sign = prompt(
+                'delete category "' + this.category.name + '"? ' + rand
+            )
+            if (sign == 'yes please ' + rand) {
+                this.$store.dispatch('category/delete', {
+                    _id: this.category._id
+                })
+            } else {
+                alert('wrong answer !')
+            }
         }
     }
 }

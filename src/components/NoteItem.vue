@@ -57,9 +57,15 @@ export default {
             }
         },
         deleteNote(id) {
-            this.$store.dispatch('note/delete', {
-                _id: id
-            })
+            let rand = Math.round(Math.random() * 10)
+            let sign = prompt('delete note "' + this.note.name + '"? ' + rand)
+            if (sign == 'yes please ' + rand) {
+                this.$store.dispatch('note/delete', {
+                    _id: id
+                })
+            } else {
+                alert('wrong answer !')
+            }
         }
     }
 }
