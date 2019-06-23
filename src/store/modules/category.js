@@ -5,7 +5,7 @@ const state = {
 }
 
 const mutations = {
-  CREATE_ROOT(state, payload) {
+  CREATE_ROOT(state) {
     state.categories.push({
       _id: 'c0',
       name: 'root',
@@ -53,6 +53,12 @@ const mutations = {
   DELETE(state, payload) {
     state.categories = state.categories.filter(c => !payload.includes(c._id))
   },
+  LINK_NOTE(state, payload) {
+    let { categoryId, noteId } = payload
+    let category =
+      state.categories[state.categories.findIndex(c => c._id === categoryId)]
+    category.notes.push(noteId)
+  },
   UNLINK_NOTE(state, payload) {
     let { categoryId, noteId } = payload
     let category =
@@ -81,10 +87,12 @@ const actions = {
     // fetch this category
     let cat = state.categories[state.categories.findIndex(c => c._id === _id)]
     let toDelete = dig(cat, state, { categories: [], notes: [] })
-    console.log(toDelete)
     dispatch('unlinkCategory', { parentId: cat.parent, childId: _id })
     dispatch('note/deleteMany', toDelete.notes, { root: true })
     commit('DELETE', toDelete.categories)
+  },
+  linkNote({ commit }, payload) {
+    commit('LINK_NOTE', payload)
   },
   unlinkNote({ commit }, payload) {
     commit('UNLINK_NOTE', payload)
