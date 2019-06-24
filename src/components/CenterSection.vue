@@ -92,7 +92,7 @@ export default {
     min-width: 500px;
     height: 100vh;
     overflow-y: auto;
-    background: #fefefe;
+    background: #fafafa;
     padding: 60px;
 }
 #center-section h1 {

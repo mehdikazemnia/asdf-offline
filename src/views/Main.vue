@@ -39,6 +39,7 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    background-color: #fafafa;
 }
 </style>
 
