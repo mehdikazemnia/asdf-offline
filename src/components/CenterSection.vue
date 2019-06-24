@@ -95,7 +95,18 @@ export default {
     background: #fefefe;
     padding: 60px;
 }
-
+#center-section h1 {
+    font-size: 1.9em;
+}
+#center-section h2 {
+    font-size: 1.5em;
+}
+#center-section h3 {
+    font-size: 1.25em;
+}
+#center-section h4 {
+    font-size: 1.1em;
+}
 #center-section :focus,
 #center-section .ProseMirror-focused {
     outline: none !important;
