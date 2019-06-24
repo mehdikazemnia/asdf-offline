@@ -96,7 +96,7 @@ nav > #base-list {
 .item::after {
     position: absolute;
     content: '';
-    top: 14px;
+    top: 12px;
     left: -20px;
     border-left: 1px dashed #777;
     border-top: 1px dashed #777;
@@ -107,22 +107,26 @@ nav > #base-list {
 }
 .item > .label {
     font-size: 15px;
-    height: 28px;
+    height: 26px;
     line-height: 20px;
     cursor: pointer;
     user-select: none;
     position: relative;
-    padding: 3px 1px;
+    padding: 2px 1px;
+}
+.item > .label:hover {
+    color: #333;
+    text-decoration: underline;
 }
 .item > .label::before {
     content: '';
     position: absolute;
-    top: -8px;
+    top: -10px;
     left: -20px;
     border-left: 1px dashed #777;
     border-bottom: 1px dashed #777;
     border-radius: 0 0 0 5px;
-    width: 20px;
+    width: 16px;
     height: 22px;
     z-index: 29;
 }
@@ -134,7 +138,6 @@ nav > #base-list {
     line-height: 20px;
     margin-left: -8px;
     z-index: 30;
-    background-color: #fafafa;
     position: relative;
     vertical-align: top;
 }
