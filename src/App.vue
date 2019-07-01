@@ -17,7 +17,8 @@ export default {
     font-family: sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #222;
+    color: #444;
+    -webkit-filter: invert(100%);
 }
 
 @font-face {

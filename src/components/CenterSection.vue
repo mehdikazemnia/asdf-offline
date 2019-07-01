@@ -393,4 +393,26 @@ export default {
     background: transparent;
     color: #fff;
 }
+#center-section .editor__content  a {
+    cursor: pointer;
+    text-decoration: none;
+}
+#center-section .editor__content  a:hover{
+}
+#center-section .editor__content ul{
+    padding-top: 1px;
+    padding-bottom: 8px;
+    padding-left: 20px;
+}
+#center-section .editor__content li > ul> li,
+#center-section .editor__content li > ul> ol{
+    opacity: .7;
+}
+#center-section .editor__content li > ul> li:hover,
+#center-section .editor__content li > ul> ol:hover{
+    opacity: 1;
+    color:#000;
+}
+
+
 </style>
