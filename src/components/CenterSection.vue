@@ -429,8 +429,8 @@ export default {
     padding-bottom: 8px;
     padding-left: 20px;
 }
-#center-section .editor__content li{
-    margin-top:1px;
+#center-section .editor__content li {
+    margin-top: 1px;
     margin-bottom: 2px;
 }
 #center-section .editor__content li > ul > li > a,
@@ -441,5 +441,8 @@ export default {
 #center-section .editor__content li > ol > li > a:hover {
     opacity: 1;
     color: #000;
+}
+#center-section .editor__content {
+    font-size: 1.05em;
 }
 </style>
