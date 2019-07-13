@@ -18,7 +18,6 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #444;
-    -webkit-filter: invert(100%);
 }
 
 @font-face {

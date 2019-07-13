@@ -1,7 +1,22 @@
 
 <template>
     <section id="center-section">
-        <editor-content class="editor__content" :editor="editor"/>
+        <editor-menu-bar :editor="editor" v-slot="{ commands, isActive, focused }">
+            <div class="menubar is-hidden" :class="{ 'is-focused': focused }">
+                <button class="menubar__button" @click="showImagePrompt(commands.image)">
+                    <icon name="image" />
+                </button>
+                <button
+                    class="menubar__button"
+                    :class="{ 'is-active': isActive.code_block() }"
+                    @click="commands.code_block"
+                >
+                    <icon name="code" />
+                </button>
+            </div>
+        </editor-menu-bar>
+
+        <editor-content class="editor__content" :editor="editor" />
         <div style="display:none">{{this.innitialContent}}</div>
     </section>
 </template>
@@ -9,6 +24,7 @@
 <script>
 // import Icon from 'Components/Icon'
 import { Editor, EditorContent, EditorMenuBar } from 'tiptap'
+import Icon from './Icon.vue'
 import {
     Blockquote,
     CodeBlock,
@@ -22,6 +38,7 @@ import {
     Bold,
     Code,
     Italic,
+    Image,
     Link,
     History
 } from 'tiptap-extensions'
@@ -37,6 +54,7 @@ let editor = (editor = new Editor({
         new TodoList(),
         new Bold(),
         new Code(),
+        new Image(),
         new Italic(),
         new Link(),
         new History(),
@@ -46,7 +64,8 @@ let editor = (editor = new Editor({
 export default {
     components: {
         EditorContent,
-        EditorMenuBar
+        EditorMenuBar,
+        Icon
     },
     data() {
         return {
@@ -56,7 +75,13 @@ export default {
         }
     },
     methods: {
-        setContent() {}
+        setContent() {},
+        showImagePrompt(command) {
+            const src = prompt('Enter the url of your image here')
+            if (src !== null) {
+                command({ src })
+            }
+        }
     },
     computed: {
         innitialContent() {
@@ -393,26 +418,28 @@ export default {
     background: transparent;
     color: #fff;
 }
-#center-section .editor__content  a {
+#center-section .editor__content a {
     cursor: pointer;
     text-decoration: none;
 }
-#center-section .editor__content  a:hover{
+#center-section .editor__content a:hover {
 }
-#center-section .editor__content ul{
+#center-section .editor__content ul {
     padding-top: 1px;
     padding-bottom: 8px;
     padding-left: 20px;
 }
-#center-section .editor__content li > ul> li,
-#center-section .editor__content li > ul> ol{
-    opacity: .7;
+#center-section .editor__content li{
+    margin-top:1px;
+    margin-bottom: 2px;
 }
-#center-section .editor__content li > ul> li:hover,
-#center-section .editor__content li > ul> ol:hover{
+#center-section .editor__content li > ul > li > a,
+#center-section .editor__content li > ol > li > a {
+    opacity: 0.7;
+}
+#center-section .editor__content li > ul > li > a:hover,
+#center-section .editor__content li > ol > li > a:hover {
     opacity: 1;
-    color:#000;
+    color: #000;
 }
-
-
 </style>
